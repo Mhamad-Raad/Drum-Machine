@@ -27,6 +27,7 @@ const song = {
 function App() {
   const ref = useRef();
   const [outPut, setOutPut] = useState("");
+  const [power, setPower] = useState(true);
 
   useEffect(() => {
     ref.current.focus();
@@ -39,14 +40,26 @@ function App() {
   };
 
   const drumClickHandler = (BName) => {
-    const audio = new Audio(song[BName]);
-    audio.play();
-    setOutPut(BName);
+    if (power) {
+      const audio = new Audio(song[BName]);
+      audio.play();
+      setOutPut(BName);
+    }
+  };
+
+  const powerHandler = (check) => {
+    setPower(check);
+    setOutPut("");
   };
 
   return (
     <div className="App" onKeyDown={checker} tabIndex={-1} ref={ref}>
-      <MachineWarappar drumClickHandler={drumClickHandler} val={outPut} />
+      <MachineWarappar
+        drumClickHandler={drumClickHandler}
+        val={outPut}
+        powerHandler={powerHandler}
+        power={power}
+      />
     </div>
   );
 }
