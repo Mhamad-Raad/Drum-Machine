@@ -28,12 +28,6 @@ export default function Display({
         }}
         value={volume * 100}
       />
-
-      <p>Bank</p>
-      <label className="switch margin">
-        <input type="checkbox" />
-        <span className="slider" />
-      </label>
     </div>
   );
 }
