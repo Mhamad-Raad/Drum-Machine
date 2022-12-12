@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import MachineWarappar from "./Components/MachineWrappar";
 import song1 from "./Assets/Q.mp3";
 import song2 from "./Assets/W.mp3";
@@ -25,21 +25,29 @@ const song = {
 };
 
 function App() {
+  const ref = useRef();
   const [outPut, setOutPut] = useState("");
 
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
+
   const checker = (e) => {
-    console.log(e.key);
+    if (e.key.toUpperCase() in song) {
+      const audio = new Audio(song[e.key.toUpperCase()]);
+      audio.play();
+      setOutPut(e.key.toUpperCase());
+    }
   };
 
   const drumClickHandler = (BName) => {
-    console.log(song[BName]);
     const audio = new Audio(song[BName]);
     audio.play();
     setOutPut(BName);
   };
 
   return (
-    <div className="App" onKeyDown={checker} tabIndex={-1}>
+    <div className="App" onKeyDown={checker} tabIndex={-1} ref={ref}>
       <MachineWarappar drumClickHandler={drumClickHandler} val={outPut} />
     </div>
   );
