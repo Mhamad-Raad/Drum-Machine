@@ -5,7 +5,6 @@ export default function Display({
   volume,
   volumeHandler,
 }) {
-  console.log(power);
   return (
     <div id="display">
       <p>Power</p>
