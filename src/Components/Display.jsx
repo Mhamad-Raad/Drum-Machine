@@ -1,4 +1,10 @@
-export default function Display({ val, powerHandler, power }) {
+export default function Display({
+  val,
+  powerHandler,
+  power,
+  volume,
+  volumeHandler,
+}) {
   console.log(power);
   return (
     <div id="display">
@@ -12,7 +18,16 @@ export default function Display({ val, powerHandler, power }) {
         <span className="slider" />
       </label>
       <div className="value-show margin">{val}</div>
-      <input type="range" min="1" max="100" className="Vslider margin" />
+      <input
+        type="range"
+        min="0"
+        max="100"
+        className="Vslider margin"
+        onChange={(event) => {
+          volumeHandler(event.target.value);
+        }}
+        value={volume * 100}
+      />
 
       <p>Bank</p>
       <label className="switch margin">

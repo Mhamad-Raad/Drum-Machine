@@ -28,6 +28,14 @@ function App() {
   const ref = useRef();
   const [outPut, setOutPut] = useState("");
   const [power, setPower] = useState(true);
+  const [volume, setVolume] = useState(0.5);
+
+  const volumeHandler = (v) => {
+    if (power) {
+      setVolume(v / 100);
+      setOutPut(`Volume ${v}`)
+    }
+  };
 
   useEffect(() => {
     ref.current.focus();
@@ -42,6 +50,7 @@ function App() {
   const drumClickHandler = (BName) => {
     if (power) {
       const audio = new Audio(song[BName]);
+      audio.volume = volume;
       audio.play();
       setOutPut(BName);
     }
@@ -59,6 +68,8 @@ function App() {
         val={outPut}
         powerHandler={powerHandler}
         power={power}
+        volumeHandler={volumeHandler}
+        volume={volume}
       />
     </div>
   );

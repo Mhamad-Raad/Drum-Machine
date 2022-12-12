@@ -8,11 +8,19 @@ export default function MachineWarappar({
   val,
   powerHandler,
   power,
+  volumeHandler,
+  volume,
 }) {
   return (
     <div id="drum-machine">
       <Drums drumClickHandler={drumClickHandler} />
-      <Display val={val} powerHandler={powerHandler} power={power} />
+      <Display
+        val={val}
+        powerHandler={powerHandler}
+        power={power}
+        volumeHandler={volumeHandler}
+        volume={volume}
+      />
     </div>
   );
 }
