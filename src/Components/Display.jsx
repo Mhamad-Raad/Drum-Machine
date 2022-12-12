@@ -1,20 +1,17 @@
 import React from "react";
 
-export default function Display() {
+export default function Display({ val }) {
   return (
     <div id="display">
-      <label class="switch margin">
+      <label className="switch margin">
         <input type="checkbox" />
-        <span class="slider"></span>
+        <span className="slider" />
       </label>
-
-      <div className="value-show margin"></div>
-
-      <input type="range" min="1" max="100" class="Vslider margin" />
-
-      <label class="switch margin">
+      <div className="value-show margin">{val}</div>
+      <input type="range" min="1" max="100" className="Vslider margin" />
+      <label className="switch margin">
         <input type="checkbox" />
-        <span class="slider"></span>
+        <span className="slider" />
       </label>
     </div>
   );

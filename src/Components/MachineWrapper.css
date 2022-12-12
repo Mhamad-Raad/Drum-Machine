@@ -99,7 +99,9 @@ input:checked+.slider:before {
   height: 50px;
   width: 90%;
   box-sizing: border-box;
-  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: grey;
 }
 

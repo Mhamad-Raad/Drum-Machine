@@ -1,7 +1,7 @@
-export default function DrumPad({ drumName }) {
+export default function DrumPad({ drumName, clicker }) {
   return (
-    <div className="drum-pad" id={drumName}>
+    <button className="drum-pad" id={drumName} onClick={() => clicker(drumName)}>
       {drumName}
-    </div>
+    </button>
   );
 }
