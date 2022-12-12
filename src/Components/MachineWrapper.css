@@ -139,3 +139,9 @@ input:checked+.slider:before {
 .margin {
   margin-bottom: 20px;
 }
+
+#display p {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
