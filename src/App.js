@@ -34,9 +34,7 @@ function App() {
 
   const checker = (e) => {
     if (e.key.toUpperCase() in song) {
-      const audio = new Audio(song[e.key.toUpperCase()]);
-      audio.play();
-      setOutPut(e.key.toUpperCase());
+      drumClickHandler(e.key.toUpperCase());
     }
   };
 
